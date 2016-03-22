@@ -10,9 +10,9 @@
 	<li>Filter</li>
 </ul>
 
-URL: <a href="http://localhost/Contacts/mvc?logic=ListContacts">http://localhost/Contacts/mvc?logic=ListContacts</a>
-
 <h4>References</h4>
 <ul> 
 	<li>FJ-21 Caelum - Java para Desenvolvimento Web<l1>
 </ul>
+
+URL: <a href="http://localhost/Contacts/mvc?logic=ListContacts">http://localhost/Contacts/mvc?logic=ListContacts</a>
