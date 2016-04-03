@@ -1,4 +1,4 @@
-package com.contact.filtrer;
+package com.contact.filter;
 
 import java.io.IOException;
 import java.sql.Connection;

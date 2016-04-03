@@ -6,10 +6,22 @@ import java.sql.SQLException;
 
 public class ConnectionFactory{
 	
-	public Connection getConnection(){
+	String USERNAME = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
+	String PASSWORD = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
+	String DB_NAME = System.getenv("OPENSHIFT_APP_NAME");
+	String DB_URL = System.getenv("OPENSHIFT_MYSQL_DB_URL");
+    String PORT = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+    String HOST = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+    String FORNAME_URL = "com.mysql.jdbc.Driver";
+	
+    String URL = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DB_NAME;
+
+    public Connection getConnection(){
 		try{
-			Class.forName("com.mysql.jdbc.Driver");
-			return DriverManager.getConnection("jdbc:mysql://localhost/projects?autoReconnect=true&useSSL=false", "root", "root");
+			System.out.println("URL: " + URL);
+			
+			Class.forName(FORNAME_URL);
+			return DriverManager.getConnection(URL, USERNAME, PASSWORD);
 		}catch(SQLException | ClassNotFoundException e){
 			e.printStackTrace();
 			throw new RuntimeException(e);
