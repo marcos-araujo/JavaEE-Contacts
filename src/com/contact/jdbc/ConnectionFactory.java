@@ -18,10 +18,9 @@ public class ConnectionFactory{
 
     public Connection getConnection(){
 		try{
-			System.out.println("URL: " + URL);
-			
 			Class.forName(FORNAME_URL);
-			return DriverManager.getConnection(URL, USERNAME, PASSWORD);
+			//return DriverManager.getConnection(URL, USERNAME, PASSWORD);
+			return DriverManager.getConnection("jdbc:mysql://localhost/projects", "root", "root");
 		}catch(SQLException | ClassNotFoundException e){
 			e.printStackTrace();
 			throw new RuntimeException(e);

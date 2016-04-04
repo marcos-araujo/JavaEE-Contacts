@@ -5,6 +5,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <build>
+   	<finalName>contact</finalName>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
       <plugin>
@@ -23,14 +24,6 @@
           <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
       </plugin>
-      <plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-eclipse-plugin</artifactId>
-			<configuration>
-				<wtpversion>2.0</wtpversion>
-				<wtpContextName>contact</wtpContextName>
-			</configuration>
-		</plugin>
     </plugins>
   </build>
 	<dependencies>
