@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<link href="css/script.css" rel="stylesheet">
+		<link href="/css/script.css" rel="stylesheet">
 		<title>List</title>
 	</head>
 	<body>

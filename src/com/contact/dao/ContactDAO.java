@@ -9,57 +9,68 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import com.contact.jdbc.ConnectionFactory;
 import com.contact.model.Contact;
 
 public class ContactDAO{
 	
 	private Connection connection;
 	
-	public ContactDAO(){
-		this.connection = new ConnectionFactory().getConnection();
-	}
-	
 	public ContactDAO(Connection connection){
 		this.connection = connection;
 	}
 	
 	public void add(Contact contact){
+		PreparedStatement stmt = null;
 		String sql = "INSERT INTO CONTACT (NAME, EMAIL, ADDRESS, BIRTHDATE) VALUES (?,?,?,?)";
 		try{
-			PreparedStatement stmt = this.connection.prepareStatement(sql);
+			stmt = this.connection.prepareStatement(sql);
 			stmt.setString(1, contact.getName());
 			stmt.setString(2, contact.getEmail());
 			stmt.setString(3, contact.getAddress());
 			stmt.setDate(4, new Date(contact.getBirthdate().getTimeInMillis()));
 			stmt.execute();
-			stmt.close();
 		}catch(SQLException e){
 			throw new RuntimeException();
+		}finally{
+			try{
+				stmt.close();
+				connection.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
 		}
 	}
 	
 	public void alter(Contact contact){
-		String sql = "UPDATE CONTACT set NAME=?, EMAIL=?, ADDRESS=?, BIRTHDATE=? WHERE ID=?";
+		PreparedStatement stmt = null;
+		String sql = "UPDATE CONTACT SET NAME=?, EMAIL=?, ADDRESS=?, BIRTHDATE=? WHERE ID=?";
 		try{
-			PreparedStatement stmt = connection.prepareStatement(sql);
+			stmt = connection.prepareStatement(sql);
 			stmt.setString(1, contact.getName());
 			stmt.setString(2, contact.getEmail());
 			stmt.setString(3, contact.getAddress());
 			stmt.setDate(4, new Date(contact.getBirthdate().getTimeInMillis()));
 			stmt.setLong(5, contact.getId());
 			stmt.execute();
-			stmt.close();
 		}catch(SQLException e){
 			throw new RuntimeException(e);
+		}finally{
+			try{
+				stmt.close();
+				connection.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
 		}
 	}
 	
 	public List<Contact> list(){
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
 		try{
 			List<Contact> contatos = new ArrayList<Contact>();
-			PreparedStatement stmt = this.connection.prepareStatement("SELECT ID, NAME, EMAIL, ADDRESS, BIRTHDATE FROM CONTACT");
-			ResultSet rs = stmt.executeQuery();
+			stmt = this.connection.prepareStatement("SELECT ID, NAME, EMAIL, ADDRESS, BIRTHDATE FROM CONTACT");
+			rs = stmt.executeQuery();
 			while(rs.next()){
 				Contact contato = new Contact();
 				contato.setId(rs.getLong("id"));
@@ -71,19 +82,27 @@ public class ContactDAO{
 				contato.setBirthdate(data);
 				contatos.add(contato);
 			}
-			rs.close();
-			stmt.close();
 			return contatos;
 		}catch(SQLException e){
 			throw new RuntimeException(e);
+		}finally{
+			try{
+				rs.close();
+				stmt.close();
+				connection.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
 		}
 	}
 	
 	public Contact get(long id){
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
 		try{
 			Contact contact = new Contact();
-			PreparedStatement stmt = this.connection.prepareStatement("SELECT ID, NAME, EMAIL, ADDRESS, BIRTHDATE FROM CONTACT WHERE ID = " + id);
-			ResultSet rs = stmt.executeQuery();
+			stmt = this.connection.prepareStatement("SELECT ID, NAME, EMAIL, ADDRESS, BIRTHDATE FROM CONTACT WHERE ID = " + id);
+			rs = stmt.executeQuery();
 			if(rs.next()){
 				contact.setId(rs.getLong("id"));
 				contact.setName(rs.getString("name"));
@@ -92,25 +111,37 @@ public class ContactDAO{
 				Calendar data = Calendar.getInstance();
 				data.setTime(rs.getDate("birthdate"));
 				contact.setBirthdate(data);
+				return contact;
 			}
-			else
-				return null;
-			rs.close();
-			stmt.close();
-			return contact;
+			return null;
 		}catch(SQLException e){
 			throw new RuntimeException(e);
+		}finally{
+			try{
+				rs.close();
+				stmt.close();
+				connection.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
 		}
 	}
 	
 	public void delete(Contact contact){
+		PreparedStatement stmt = null;
 		try{
-			PreparedStatement stmt = connection.prepareStatement("DELETE FROM CONTACT WHERE ID = ?");
+			stmt = connection.prepareStatement("DELETE FROM CONTACT WHERE ID = ?");
 			stmt.setLong(1, contact.getId());
 			stmt.execute();
-			stmt.close();
 		}catch(SQLException e){
 			throw new RuntimeException(e);
+		}finally{
+			try{
+				stmt.close();
+				connection.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
 		}
 	}
 	

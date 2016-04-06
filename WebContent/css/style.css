@@ -1,5 +1,11 @@
 @CHARSET "ISO-8859-1";
 
-*{
-	margin:0;
+#header{
+	background-color: #FFC90E;
+	font-weight: bold;
+	height: 150px;
+	font-size: 100px;
+	font-family: Arial;
+	text-align: center;
+	line-height: 150px;
 }

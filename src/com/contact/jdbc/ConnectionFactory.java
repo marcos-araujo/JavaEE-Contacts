@@ -20,7 +20,7 @@ public class ConnectionFactory{
 		try{
 			Class.forName(FORNAME_URL);
 			//return DriverManager.getConnection(URL, USERNAME, PASSWORD);
-			return DriverManager.getConnection("jdbc:mysql://localhost/projects", "root", "root");
+			return DriverManager.getConnection("jdbc:mysql://localhost/projects?autoReconnect=true&useSSL=false", "root", "root");
 		}catch(SQLException | ClassNotFoundException e){
 			e.printStackTrace();
 			throw new RuntimeException(e);
