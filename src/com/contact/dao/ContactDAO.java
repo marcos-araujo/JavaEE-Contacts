@@ -27,14 +27,13 @@ public class ContactDAO{
 			stmt.setString(1, contact.getName());
 			stmt.setString(2, contact.getEmail());
 			stmt.setString(3, contact.getAddress());
-			stmt.setDate(4, new Date(contact.getBirthdate().getTimeInMillis()));
+			stmt.setDate(4, contact.getBirthdate()!=null ? new Date(contact.getBirthdate().getTimeInMillis()):null);
 			stmt.execute();
 		}catch(SQLException e){
 			throw new RuntimeException();
 		}finally{
 			try{
 				stmt.close();
-				connection.close();
 			}catch(SQLException e){
 				e.printStackTrace();
 			}
@@ -57,7 +56,6 @@ public class ContactDAO{
 		}finally{
 			try{
 				stmt.close();
-				connection.close();
 			}catch(SQLException e){
 				e.printStackTrace();
 			}
@@ -78,8 +76,11 @@ public class ContactDAO{
 				contato.setEmail(rs.getString("email"));
 				contato.setAddress(rs.getString("address"));
 				Calendar data = Calendar.getInstance();
-				data.setTime(rs.getDate("birthdate"));
-				contato.setBirthdate(data);
+				if(rs.getDate("birthdate")!=null){
+					data.setTime(rs.getDate("birthdate"));
+					contato.setBirthdate(data);
+				}else
+					contato.setBirthdate(null);
 				contatos.add(contato);
 			}
 			return contatos;
@@ -89,7 +90,6 @@ public class ContactDAO{
 			try{
 				rs.close();
 				stmt.close();
-				connection.close();
 			}catch(SQLException e){
 				e.printStackTrace();
 			}
@@ -120,7 +120,6 @@ public class ContactDAO{
 			try{
 				rs.close();
 				stmt.close();
-				connection.close();
 			}catch(SQLException e){
 				e.printStackTrace();
 			}
@@ -138,7 +137,6 @@ public class ContactDAO{
 		}finally{
 			try{
 				stmt.close();
-				connection.close();
 			}catch(SQLException e){
 				e.printStackTrace();
 			}

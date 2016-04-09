@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<link href="css/jquery-ui.css" rel="stylesheet">
-		<link href="css/script.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
 		<script src="js/jquery.js"></script>
 		<script src="js/jquery-ui.js"></script>
 		<meta charset="ISO-8859-1">

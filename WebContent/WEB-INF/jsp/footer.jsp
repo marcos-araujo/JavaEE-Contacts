@@ -1,2 +1,2 @@
 <hr />
-Copyright 2015 - All rights reserved.
+Copyright 2016 - All rights reserved.

@@ -20,12 +20,14 @@ public class AddContact implements Logic{
 		String email = req.getParameter("email");
 		String dataEmTexto = req.getParameter("birthdate");
 		Calendar dataNascimento = null;
-		try{
-			Date date =	new SimpleDateFormat("dd/MM/yyyy").parse(dataEmTexto);
-			dataNascimento = Calendar.getInstance();
-			dataNascimento.setTime(date);
-		}catch(ParseException e){
-			e.printStackTrace();
+		if(!dataEmTexto.equals("")){
+			try{
+				Date date =	new SimpleDateFormat("dd/MM/yyyy").parse(dataEmTexto);
+				dataNascimento = Calendar.getInstance();
+				dataNascimento.setTime(date);
+			}catch(ParseException e){
+				e.printStackTrace();
+			}
 		}
 		Contact contato = new Contact();
 		contato.setName(nome);
