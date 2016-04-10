@@ -18,7 +18,7 @@ public class ShowContact implements Logic{
 		Contact contact = dao.get(id);
 		req.setAttribute("contact", contact);
 		req.setAttribute("date", new SimpleDateFormat("dd/MM/yyyy").format(contact.getBirthdate().getTime()));
-		System.out.println("Showing contact");
+		System.out.println("Showing Contact.");
 		return "/WEB-INF/jsp/alter-contact.jsp";
 	}
 			

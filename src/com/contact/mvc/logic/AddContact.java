@@ -15,29 +15,29 @@ import com.contact.model.Contact;
 public class AddContact implements Logic{
 	
 	public String execute(HttpServletRequest req, HttpServletResponse res) throws Exception{
-		String nome = req.getParameter("name");
-		String endereco = req.getParameter("address");
+		String name = req.getParameter("name");
+		String address = req.getParameter("address");
 		String email = req.getParameter("email");
-		String dataEmTexto = req.getParameter("birthdate");
-		Calendar dataNascimento = null;
-		if(!dataEmTexto.equals("")){
+		String dateText = req.getParameter("birthdate");
+		Calendar birthdate = null;
+		if(!dateText.equals("")){
 			try{
-				Date date =	new SimpleDateFormat("dd/MM/yyyy").parse(dataEmTexto);
-				dataNascimento = Calendar.getInstance();
-				dataNascimento.setTime(date);
+				Date date =	new SimpleDateFormat("dd/MM/yyyy").parse(dateText);
+				birthdate = Calendar.getInstance();
+				birthdate.setTime(date);
 			}catch(ParseException e){
 				e.printStackTrace();
 			}
 		}
-		Contact contato = new Contact();
-		contato.setName(nome);
-		contato.setAddress(endereco);
-		contato.setEmail(email);
-		contato.setBirthdate(dataNascimento);
+		Contact contact = new Contact();
+		contact.setName(name);
+		contact.setAddress(address);
+		contact.setEmail(email);
+		contact.setBirthdate(birthdate);
 		Connection connection = (Connection) req.getAttribute("connection");
 		ContactDAO dao = new ContactDAO(connection);
-		dao.add(contato);
-		System.out.println("Adding contact.");
+		dao.add(contact);
+		System.out.println("Adding Contact.");
 		return "mvc?logic=ListContacts";
 	}
 			

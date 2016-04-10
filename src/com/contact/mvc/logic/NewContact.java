@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 public class NewContact implements Logic{
 	
 	public String execute(HttpServletRequest req, HttpServletResponse res) throws Exception{
-		System.out.println("New contact.");
+		System.out.println("New Contact.");
 		return "/WEB-INF/jsp/add-contact.jsp";
 	}
 			

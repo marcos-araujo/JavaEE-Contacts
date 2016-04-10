@@ -19,18 +19,18 @@ import com.contact.jdbc.ConnectionFactory;
 public class FilterExecutionTime implements Filter{
 	
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException{
-		long initialTime = System.currentTimeMillis();
 		try{
+			long initialTime = System.currentTimeMillis();
 			Connection connection = new ConnectionFactory().getConnection();
 			request.setAttribute("connection", connection);
 			chain.doFilter(request, response);
-			long finalTime = System.currentTimeMillis();
 			String uri = ((HttpServletRequest)request).getRequestURI();
-			String parametros = ((HttpServletRequest) request).getParameter("logic");
+			String logic = ((HttpServletRequest) request).getParameter("logic");
 			connection.close();
-			System.out.println("Request time: " + uri + "?logic="	+ parametros + " is (ms): " + (finalTime - initialTime));
+			long finalTime = System.currentTimeMillis();
+			System.out.println("Request time: " + uri + "?logic=" + logic + " is (ms): " + (finalTime - initialTime));
 		}catch(SQLException e){
-			e.printStackTrace();
+			System.out.println("Error SQL " + e.getMessage());
 		}
 	}
 

@@ -17,7 +17,7 @@ public class RemoveContact implements Logic{
 		Connection connection = (Connection) req.getAttribute("connection");
 		ContactDAO dao = new ContactDAO(connection);
 		dao.delete(contact);
-		System.out.println("Removing contact.");
+		System.out.println("Removing Contact.");
 		return "mvc?logic=ListContacts";
 	}
 

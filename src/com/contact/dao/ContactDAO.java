@@ -65,9 +65,10 @@ public class ContactDAO{
 	public List<Contact> list(){
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
+		String sql = "SELECT ID, NAME, EMAIL, ADDRESS, BIRTHDATE FROM CONTACT";
 		try{
 			List<Contact> contatos = new ArrayList<Contact>();
-			stmt = this.connection.prepareStatement("SELECT ID, NAME, EMAIL, ADDRESS, BIRTHDATE FROM CONTACT");
+			stmt = this.connection.prepareStatement(sql);
 			rs = stmt.executeQuery();
 			while(rs.next()){
 				Contact contato = new Contact();
@@ -99,11 +100,12 @@ public class ContactDAO{
 	public Contact get(long id){
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
+		String sql = "SELECT ID, NAME, EMAIL, ADDRESS, BIRTHDATE FROM CONTACT WHERE ID = " + id;
 		try{
-			Contact contact = new Contact();
-			stmt = this.connection.prepareStatement("SELECT ID, NAME, EMAIL, ADDRESS, BIRTHDATE FROM CONTACT WHERE ID = " + id);
+			stmt = this.connection.prepareStatement(sql);
 			rs = stmt.executeQuery();
 			if(rs.next()){
+				Contact contact = new Contact();
 				contact.setId(rs.getLong("id"));
 				contact.setName(rs.getString("name"));
 				contact.setEmail(rs.getString("email"));
@@ -128,8 +130,9 @@ public class ContactDAO{
 	
 	public void delete(Contact contact){
 		PreparedStatement stmt = null;
+		String sql = "DELETE FROM CONTACT WHERE ID = ?";
 		try{
-			stmt = connection.prepareStatement("DELETE FROM CONTACT WHERE ID = ?");
+			stmt = connection.prepareStatement(sql);
 			stmt.setLong(1, contact.getId());
 			stmt.execute();
 		}catch(SQLException e){

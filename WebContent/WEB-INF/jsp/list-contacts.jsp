@@ -6,7 +6,8 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<link href="css/style.css" rel="stylesheet">
-		<title>List</title>
+		<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+		<title>List of Contacts</title>
 	</head>
 	<body>
 		<c:import url="header.jsp" />

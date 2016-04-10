@@ -37,7 +37,7 @@ public class AlterContact implements Logic{
 		Connection connection = (Connection) req.getAttribute("connection");
 		ContactDAO dao = new ContactDAO(connection);
 		dao.alter(contact);
-		System.out.println("Altering contact.");
+		System.out.println("Altering Contact.");
 		return "mvc?logic=ListContacts";
 	}
 			
