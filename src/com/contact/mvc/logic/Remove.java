@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.contact.dao.ContactDAO;
 import com.contact.model.Contact;
 
-public class RemoveContact implements Logic{
+public class Remove implements Logic{
 	
 	public String execute(HttpServletRequest req, HttpServletResponse res) throws Exception{
 		long id = Long.parseLong(req.getParameter("id"));
@@ -17,7 +17,7 @@ public class RemoveContact implements Logic{
 		Connection connection = (Connection) req.getAttribute("connection");
 		ContactDAO dao = new ContactDAO(connection);
 		dao.delete(contact);
-		System.out.println("Removing Contact.");
+		System.out.println("Remove");
 		return "mvc?logic=ListContacts";
 	}
 

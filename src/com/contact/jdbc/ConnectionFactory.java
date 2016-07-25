@@ -13,13 +13,13 @@ public class ConnectionFactory{
     String HOST = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
     String FORNAME_URL = "com.mysql.jdbc.Driver";
 	
-    String URL = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DB_NAME;
+    String URL = "jdbc:mysql://" + HOST + ":" + PORT + "/" + "PROJECTS";
 
     public Connection getConnection(){
 		try{
 			Class.forName(FORNAME_URL);
-			return DriverManager.getConnection(URL, USERNAME, PASSWORD);
-			//return DriverManager.getConnection("jdbc:mysql://localhost/projects?autoReconnect=true&useSSL=false", "root", "root");
+			//return DriverManager.getConnection(URL, USERNAME, PASSWORD);
+			return DriverManager.getConnection("jdbc:mysql://localhost/projects?autoReconnect=true&useSSL=false", "root", "root");
 		}catch(SQLException | ClassNotFoundException e){
 			e.printStackTrace();
 			throw new RuntimeException(e);

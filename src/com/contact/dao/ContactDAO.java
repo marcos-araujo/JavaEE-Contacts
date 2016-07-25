@@ -27,7 +27,7 @@ public class ContactDAO{
 			stmt.setString(1, contact.getName());
 			stmt.setString(2, contact.getEmail());
 			stmt.setString(3, contact.getAddress());
-			stmt.setDate(4, contact.getBirthdate()!=null ? new Date(contact.getBirthdate().getTimeInMillis()):null);
+			stmt.setDate(4, contact.getBirthdate() != null ? new Date(contact.getBirthdate().getTimeInMillis()) : null);
 			stmt.execute();
 		}catch(SQLException e){
 			throw new RuntimeException();
@@ -48,7 +48,7 @@ public class ContactDAO{
 			stmt.setString(1, contact.getName());
 			stmt.setString(2, contact.getEmail());
 			stmt.setString(3, contact.getAddress());
-			stmt.setDate(4, new Date(contact.getBirthdate().getTimeInMillis()));
+			stmt.setDate(4, contact.getBirthdate() != null ? new Date(contact.getBirthdate().getTimeInMillis()) : null);
 			stmt.setLong(5, contact.getId());
 			stmt.execute();
 		}catch(SQLException e){
@@ -76,12 +76,11 @@ public class ContactDAO{
 				contato.setName(rs.getString("name"));
 				contato.setEmail(rs.getString("email"));
 				contato.setAddress(rs.getString("address"));
-				Calendar data = Calendar.getInstance();
-				if(rs.getDate("birthdate")!=null){
+				if(rs.getDate("birthdate") != null){
+					Calendar data = Calendar.getInstance();
 					data.setTime(rs.getDate("birthdate"));
 					contato.setBirthdate(data);
-				}else
-					contato.setBirthdate(null);
+				}
 				contatos.add(contato);
 			}
 			return contatos;
@@ -110,9 +109,11 @@ public class ContactDAO{
 				contact.setName(rs.getString("name"));
 				contact.setEmail(rs.getString("email"));
 				contact.setAddress(rs.getString("address"));
-				Calendar data = Calendar.getInstance();
-				data.setTime(rs.getDate("birthdate"));
-				contact.setBirthdate(data);
+				if(rs.getDate("birthdate") != null){
+					Calendar data = Calendar.getInstance();
+					data.setTime(rs.getDate("birthdate"));
+					contact.setBirthdate(data);
+				}
 				return contact;
 			}
 			return null;

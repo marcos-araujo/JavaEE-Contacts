@@ -2,7 +2,7 @@
 <%@ attribute name="id" required="true" %>
 <%@ attribute name="value" %>
 
-<input id="${id}" name="${id}" value="${value}" size="8"/>
+<input id="${id}" name="${id}" value="${value}" size="6" readonly/>
 <script>
 	$("#${id}").datepicker({dateFormat: 'dd/mm/yy'});
 </script>
