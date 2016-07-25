@@ -23,7 +23,7 @@
 			</tr>
 			<c:forEach var="contact" items="${contacts}" varStatus="id">
 				<tr bgcolor="#${id.count % 2 == 0 ? 'D3D3D3' : 'EFEFEF'}" >
-					<td class="tableRight"><a href="mvc?logic=Show&id=${contact.id}">${fn:substring(contact.name, 0, 15)}"</a></td>
+					<td class="tableRight"><a href="mvc?logic=Show&id=${contact.id}">${fn:substring(contact.name, 0, 15)}</a></td>
 					<td class="tableRight">
 						<c:choose>
 							<c:when test="${not empty contact.email}">
