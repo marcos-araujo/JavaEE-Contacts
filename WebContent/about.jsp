@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="mytags" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -10,7 +12,7 @@
 		<title>About the project</title>
 	</head>
 	<body>
-		<div id="header">Contacts</div>
+		<c:import url="/WEB-INF/jsp/header.jsp" />
 		<h2>Concepts</h2> 
 		<ul> 
 			<li>Model View Controler</li>
@@ -21,9 +23,6 @@
 			<li>Filter</li>
 		</ul>
 		<a href="mvc?logic=ListContacts"><input type="button" value="Back" class="button"/></a>
-		<div id="footer">
-			<hr />
-			Copyright 2016 - All rights reserved. <a href="about.html">About</a>
-		</div>
+		<c:import url="/WEB-INF/jsp/footer.jsp" />
 	</body>
 </html>
