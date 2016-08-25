@@ -4,15 +4,12 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<link href="resources/css/jquery-ui.css" rel="stylesheet">
 		<link href="resources/css/contact.css" rel="stylesheet">
-		<script src="resources/js/jquery.js"></script>
-		<script src="resources/js/jquery-ui.js"></script>
 		<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 		<title>About the project</title>
 	</head>
 	<body>
-		<c:import url="/WEB-INF/views/header.jsp" />
+		<c:import url="WEB-INF/views/general/header.jsp" />
 		<h2>Concepts</h2> 
 		<ul> 
 			<li>Model View Controler</li>
@@ -23,6 +20,7 @@
 			<li>Filter</li>
 		</ul>
 		<a href="mvc?logic=ListContacts"><input type="button" value="Back" class="button"/></a>
-		<c:import url="/WEB-INF/views/footer.jsp" />
+		<c:import url="WEB-INF/views/general/footer.jsp" />
+		
 	</body>
 </html>

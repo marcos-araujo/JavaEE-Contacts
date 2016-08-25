@@ -2,22 +2,27 @@
 
 /* ------------ General ------------ */
 
-html{ font-family: Arial; background-color: #EFEFEF; }
+html { font-family: Arial; }
 
 a:link, a:visited, a:hover, a:active { color: black; }
 
-.button{ background-color: #FFC90E;	border: 1px solid grey; }
+.button { background-color: #FFC90E; border: 1px solid grey; cursor: pointer;}
 
-#header{ background-color: #FFC90E; font-weight: bold; height: 130px; font-size: 80px; text-align: center; line-height: 130px; }
+input, textarea { background-color: #eef; border-radius: 10px; margin-bottom: 5px;	padding: 2px 3px; }
 
-#tableLista{ border: 1px solid grey; }
+/* ------------ Header ------------ */
 
-#tableLista{ border-collapse: collapse; }
+#header { background-color: #FFC90E; font-weight: bold; height: 130px; font-size: 80px; text-align: center; line-height: 130px; }
 
-th{ border: 1px solid grey; }
+/* ------------ List ------------ */
 
-td{ overflow:hidden; }
+#tableLista { border-collapse: collapse; text-align: left; width: 100%; min-width: 1200px;}
+#tableLista td { padding: 3px 20px; }
+#tableLista th { padding: 3px 20px; background-color: #FFC90E; text-align: left; }
+#tableLista a { letter-spacing: 2px; font-size: 14px; }
+#tableLista tr:nth-child(2n) { background-color: #eef; }
+#tableLista tr:hover { background-color: #cfc; }
 
-.tableRight{ border-right: 1px solid grey; }
+/* ------------ Footer ------------ */
 
-#footer{ position: absolute; bottom: 10px; width: 97%; }
+#footer { position: absolute; bottom: 10px; width: 97%; }
