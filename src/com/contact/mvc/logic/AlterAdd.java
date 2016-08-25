@@ -39,7 +39,7 @@ public class AlterAdd implements Logic{
 		if(contact.getName().equals("")){
 			req.setAttribute("contact", contact);
 			req.setAttribute("message", "Name is required!");
-			return "/WEB-INF/jsp/alter-add.jsp";
+			return "/WEB-INF/views/alter-add.jsp";
 		}
 		
 		Connection connection = (Connection) req.getAttribute("connection");

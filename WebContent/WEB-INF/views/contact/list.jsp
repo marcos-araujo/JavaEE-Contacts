@@ -6,12 +6,12 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<link href="css/style.css" rel="stylesheet">
+		<link href="resources/css/contact.css" rel="stylesheet">
 		<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 		<title>List of Contacts</title>
 	</head>
 	<body>
-		<c:import url="header.jsp" />
+		<c:import url="../general/header.jsp" />
 		<br /><br />
 		<table id="tableLista" width="100%">
 			<tr id="tableHeader" align="center" valign="middle" height="40">
@@ -40,6 +40,6 @@
 		</table>
 		<br />
 		<a href="mvc?logic=New"><input type="button" value="New" class="button"/></a>
-		<c:import url="footer.jsp" />
+		<c:import url="../general/footer.jsp" />
 	</body>
 </html>

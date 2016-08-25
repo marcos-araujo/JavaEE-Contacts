@@ -5,15 +5,15 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<link href="css/jquery-ui.css" rel="stylesheet">
-		<link href="css/style.css" rel="stylesheet">
-		<script src="js/jquery.js"></script>
-		<script src="js/jquery-ui.js"></script>
+		<link href="resources/css/jquery-ui.css" rel="stylesheet">
+		<link href="resources/css/contact.css" rel="stylesheet">
+		<script src="resources/css/js/jquery.js"></script>
+		<script src="resources/css/js/jquery-ui.js"></script>
 		<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 		<title>Contact</title>
 	</head>
 	<body>
-		<c:import url="header.jsp" />
+		<c:import url="../general/header.jsp" />
 		<br /><br />
 		<form action="mvc" method="POST">
 			<span><b>${message}</b></span>
@@ -40,6 +40,6 @@
 			<a href="mvc?logic=ListContacts"><input class="button" type="button" value="Cancel" /></a>
 		</form>
 		<br />
-		<c:import url="footer.jsp" />
+		<c:import url="../general/footer.jsp" />
 	</body>
 </html>

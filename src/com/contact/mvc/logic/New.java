@@ -7,7 +7,7 @@ public class New implements Logic{
 	
 	public String execute(HttpServletRequest req, HttpServletResponse res) throws Exception{
 		System.out.println("New");
-		return "/WEB-INF/jsp/alter-add.jsp";
+		return "/WEB-INF/views/contact/alter-add.jsp";
 	}
 			
 }

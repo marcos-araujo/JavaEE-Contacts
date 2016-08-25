@@ -17,7 +17,7 @@ public class Show implements Logic{
 		Contact contact = dao.get(id);
 		req.setAttribute("contact", contact);
 		System.out.println("Show");
-		return "/WEB-INF/jsp/alter-add.jsp";
+		return "/WEB-INF/views/contact/alter-add.jsp";
 	}
 			
 }

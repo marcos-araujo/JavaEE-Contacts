@@ -16,7 +16,7 @@ public class ListContacts implements Logic{
 		List<Contact> contacts = new ContactDAO(connection).list();
 		req.setAttribute("contacts", contacts);
 		System.out.println("Listing");
-		return "/WEB-INF/jsp/list.jsp";
+		return "/WEB-INF/views/contact/list.jsp";
 	}
 			
 }

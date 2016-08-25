@@ -1,0 +1,23 @@
+@CHARSET "ISO-8859-1";
+
+/* ------------ General ------------ */
+
+html{ font-family: Arial; background-color: #EFEFEF; }
+
+a:link, a:visited, a:hover, a:active { color: black; }
+
+.button{ background-color: #FFC90E;	border: 1px solid grey; }
+
+#header{ background-color: #FFC90E; font-weight: bold; height: 130px; font-size: 80px; text-align: center; line-height: 130px; }
+
+#tableLista{ border: 1px solid grey; }
+
+#tableLista{ border-collapse: collapse; }
+
+th{ border: 1px solid grey; }
+
+td{ overflow:hidden; }
+
+.tableRight{ border-right: 1px solid grey; }
+
+#footer{ position: absolute; bottom: 10px; width: 97%; }
