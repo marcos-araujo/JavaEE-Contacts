@@ -8,7 +8,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<link href="resources/css/contact.css" rel="stylesheet">
 		<link rel="shortcut icon" type="image/x-icon" href="resources/images/favicon.ico">
-		<title>List of Contacts</title>
+		<title>Contact</title>
 	</head>
 	<body>
 		<c:import url="../general/header.jsp" />
