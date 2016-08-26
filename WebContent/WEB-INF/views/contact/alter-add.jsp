@@ -24,8 +24,8 @@
 				</tr>
 				<tr>
 					<td>E-mail:</td>
-					<td align="left"><input type="text" name="email" value="${contact.email}" size="54" maxlength="80" ></td>
-					<td align="right">Date of Birth : <mytags:fieldDate id="birthdate" value="${contact.textDate}" /></td>
+					<td align="left"><input type="text" name="email" value="${contact.email}" size="52" maxlength="80" ></td>
+					<td align="right">Date of Birth:<mytags:fieldDate id="birthdate" value="${contact.textDate}" /></td>
 				</tr>
 				<tr>
 					<td>Address:</td>
