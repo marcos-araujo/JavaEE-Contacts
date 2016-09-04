@@ -26,3 +26,5 @@ input, textarea { background-color: #eef; border-radius: 10px; margin-bottom: 5p
 /* ------------ Footer ------------ */
 
 #footer { position: absolute; bottom: 10px; width: 97%; }
+
+a.about:link, a.about:visited, a.about:hover{ text-decoration: underline !important; float:right; }

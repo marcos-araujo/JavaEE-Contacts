@@ -1,4 +1,4 @@
 <div id="footer">
 	<hr />
-	Copyright 2016 - All rights reserved. <a href="about.jsp">About</a>
+	<a class="about" href="about.jsp">About the project</a>
 </div>

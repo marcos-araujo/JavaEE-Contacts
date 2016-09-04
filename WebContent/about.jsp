@@ -21,6 +21,5 @@
 		</ul>
 		<a href="mvc?logic=ListContacts"><input type="button" value="Back" class="button"/></a>
 		<c:import url="WEB-INF/views/general/footer.jsp" />
-		
 	</body>
 </html>
