@@ -10,25 +10,24 @@
 		<script src="resources/js/jquery.js"></script>
 		<script src="resources/js/jquery-ui.js"></script>
 		<link rel="shortcut icon" type="image/x-icon" href="resources/images/favicon.ico">
-		<title>Contact</title>
+		<title>Web Contacts</title>
 	</head>
 	<body>
 		<c:import url="../general/header.jsp" />
 		<br /><br />
 		<form action="mvc" method="POST">
-			<span><b>${message}</b></span>
 			<table border="0" width="500">
 				<tr>
-					<td>Name:</td>
+					<td>Name</td>
 					<td colspan="2"><input type="text" name="name" value="${contact.name}" size="80" maxlength="80" /></td>
 				</tr>
 				<tr>
-					<td>E-mail:</td>
+					<td>E-mail</td>
 					<td align="left"><input type="text" name="email" value="${contact.email}" size="52" maxlength="80" ></td>
 					<td align="right">Date of Birth:<mytags:fieldDate id="birthdate" value="${contact.textDate}" /></td>
 				</tr>
 				<tr>
-					<td>Address:</td>
+					<td>Address</td>
 					<td colspan="2"><input type="text" name="address" value="${contact.address}" size="80" maxlength="100" /></td>
 				</tr>
 			</table>
@@ -38,6 +37,8 @@
 			<input type="hidden" name="logic" value="AlterAdd"/>
 			<input type="submit" value="Save" class="button"/>
 			<a href="mvc?logic=ListContacts"><input class="button" type="button" value="Cancel" /></a>
+			<br /><br />
+			<span><b>${message}</b></span>
 		</form>
 		<br />
 		<c:import url="../general/footer.jsp" />

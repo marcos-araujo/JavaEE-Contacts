@@ -1,6 +1,9 @@
-<h1>Online Contacts</h1> 
+# Web Contacts 
 
-<h4>Concepts</h4> 
+Store, edit and delete web contacts. 
+
+Training project for APIs and Design Patterns:
+
 <ul> 
 	<li>Model View Controler</li>
 	<li>Data Acess Object</li>
@@ -9,5 +12,3 @@
 	<li>JSTL</li>
 	<li>Filter</li>
 </ul>
-
-URL: <a href="http://localhost/contact/mvc?logic=ListContacts">http://localhost/contact/mvc?logic=ListContacts</a>
