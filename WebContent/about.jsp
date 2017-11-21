@@ -16,7 +16,9 @@ Training project for APIs and Design Patterns:
 	<li>Filter</li>
 </ul>
 
-Free Software <a href="https://github.com/Marcos-Maraujo/Contact">Code.</a> Feel free to contribute
+Free Software <a target="_blank" href="https://github.com/Marcos-Maraujo/Contact">Code</a>. Feel free to contribute.
+
+<br /><br />
 
 <a href="mvc?logic=ListContacts"><input type="button" value="Back" class="button"/></a>
 <c:import url="WEB-INF/views/general/footer.jsp" />
