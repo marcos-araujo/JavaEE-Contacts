@@ -5,7 +5,7 @@
 <br />
 Store, edit and delete web contacts. 
 <br /><br />
-Training project for APIs and Design Patterns:
+Training project:
 
 <ul> 
 	<li>Model View Controler</li>
