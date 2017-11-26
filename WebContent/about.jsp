@@ -16,7 +16,7 @@ Training project:
 	<li>Filter</li>
 </ul>
 
-Free Software <a target="_blank" href="https://github.com/Marcos-Maraujo/Contact">Code</a>. Feel free to contribute.
+Free Software <a target="_blank" href="https://github.com/Marcos-Maraujo/Web-Contacts">Code</a>. Feel free to contribute.
 
 <br /><br />
 
