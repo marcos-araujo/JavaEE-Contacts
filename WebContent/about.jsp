@@ -2,7 +2,7 @@
 
 <c:import url="WEB-INF/views/general/header.jsp" />
 
-<br />
+<br /> 
 Store, edit and delete web contacts. 
 <br /><br />
 Training project:
