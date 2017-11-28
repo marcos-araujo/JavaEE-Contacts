@@ -1,6 +1,7 @@
 package com.contact.filter;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -29,7 +30,7 @@ public class FilterExecutionTime implements Filter{
 			connection.close();
 			long finalTime = System.currentTimeMillis();
 			System.out.println("Request time: " + uri + "?logic=" + logic + " is (ms): " + (finalTime - initialTime));
-		}catch(SQLException e){
+		}catch(SQLException | URISyntaxException e){
 			System.out.println("Error SQL " + e.getMessage());
 		}
 	}
