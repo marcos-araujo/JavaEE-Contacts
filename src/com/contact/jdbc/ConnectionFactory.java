@@ -22,12 +22,16 @@ public class ConnectionFactory{
         URL = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
         
 		try{
-			//Class.forName(FORNAME_URL);
+			Class.forName("org.postgreesql.Driver");
 			return DriverManager.getConnection(URL, USERNAME, PASSWORD);
 		}catch(SQLException e){
 			e.printStackTrace();
 			throw new RuntimeException(e);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		return null;
 	}
 
 }
