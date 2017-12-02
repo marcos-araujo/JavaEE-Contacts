@@ -16,12 +16,19 @@ public class ControllerServlet extends HttpServlet{
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		String logicParameter = request.getParameter("logic");
-		String nomeDaClasse = "com.contact.mvc.logic." + logicParameter;
+		String packageString = "com.contact.mvc.logic.";
+		Class<?> classLogic;
 		try{
-			Class<?> classLogic = Class.forName(nomeDaClasse);
+			
+			try{
+				classLogic = Class.forName(packageString + logicParameter);
+			}catch(Exception e){
+				classLogic = Class.forName(packageString + "ListContacts");
+			}
 			Logic logic = (Logic) classLogic.newInstance();
 			String page = logic.execute(request, response);
 			request.getRequestDispatcher(page).forward(request, response);
+		
 		}catch(Exception e){
 			throw new ServletException("The business logic caused an exception:", e);
 		}

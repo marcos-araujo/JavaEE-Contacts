@@ -7,28 +7,37 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionFactory{
-
-	private String FORNAME_URL	 		= "com.mysql.jdbc.Driver";
-	private String DATABASE 			= "PROJECTS";
-	private String USERNAME				= "root";
-	private String PASSWORD				= "root";
-	private String URL					= "jdbc:mysql://localhost/" + DATABASE + "?autoReconnect=true&useSSL=false";
-
-    
+	
+	private String FORNAME;
+	private String DATABASE;
+	private String USERNAME;
+	private String PASSWORD;
+	private String URL;
+	private boolean local = false;
+	
     public Connection getConnection() throws URISyntaxException{
-    	URI dbUri = new URI(System.getenv("DATABASE_URL"));
-    	USERNAME = dbUri.getUserInfo().split(":")[0];
-        PASSWORD = dbUri.getUserInfo().split(":")[1];
-        URL = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+    	
+    	if(local){
+    		FORNAME	 = "com.mysql.jdbc.Driver";
+    		DATABASE = "PROJECTS";
+    		USERNAME = "root";
+    		PASSWORD = "root";
+    		URL      = "jdbc:mysql://localhost/" + DATABASE + "?autoReconnect=true&useSSL=false";
+    	}else{
+    		URI dbUri = new URI(System.getenv("DATABASE_URL"));
+    		FORNAME  = "org.postgresql.Driver";
+    		USERNAME = dbUri.getUserInfo().split(":")[0];
+    		PASSWORD = dbUri.getUserInfo().split(":")[1];
+    		URL 	 = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+    	}
         
 		try{
-			Class.forName("org.postgreesql.Driver");
+			Class.forName(FORNAME);
 			return DriverManager.getConnection(URL, USERNAME, PASSWORD);
 		}catch(SQLException e){
 			e.printStackTrace();
 			throw new RuntimeException(e);
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+		}catch(ClassNotFoundException e){
 			e.printStackTrace();
 		}
 		return null;
