@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<c:import url="../general/header.jsp" />
-		<br /><br />
+		<br />
 		<form action="mvc" method="POST">
 			<table border="0" width="500">
 				<tr>
@@ -24,7 +24,7 @@
 				<tr>
 					<td>E-mail</td>
 					<td align="left"><input type="text" name="email" value="${contact.email}" size="52" maxlength="80" ></td>
-					<td align="right">Date of Birth:<mytags:fieldDate id="birthdate" value="${contact.textDate}" /></td>
+					<td align="right">Date of Birth<mytags:fieldDate id="birthdate" value="${contact.textDate}" /></td>
 				</tr>
 				<tr>
 					<td>Address</td>

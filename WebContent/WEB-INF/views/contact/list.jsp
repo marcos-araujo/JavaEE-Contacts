@@ -11,12 +11,12 @@
 		<th width="30%"><b>Name</b></th>
 		<th width="26%"><b>E-mail</b></th>
 		<th width="30%"><b>Address</b></th>
-		<th width="10%"><b>Date of birth</b></th>
+		<th width="10%"><b>Date of Birth</b></th>
 		<th width="2%">&nbsp;</th>
 		<th width="2%">&nbsp;</th>
 	</tr>
 	<c:forEach var="contact" items="${contacts}" varStatus="id">
-		<tr bgcolor="#${id.count % 2 == 0 ? 'EFEFEF' : 'FFF'}" >
+		<tr bgcolor="#${id.count % 2 == 0 ? 'EFEFEF' : 'faf9e7'}" >
 			<td>${fn:substring(contact.name, 0, 15)}</td>
 			
 			<td>

@@ -6,6 +6,6 @@
 		<link rel="shortcut icon" type="image/x-icon" href="resources/images/favicon.ico">
 		<title>Web Contacts</title>
 	</head>
-	<body>
+	<body class="lightYellow">
 
 		<div id="header">Web Contacts</div>

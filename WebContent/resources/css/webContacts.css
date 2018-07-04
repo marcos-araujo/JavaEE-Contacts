@@ -14,10 +14,16 @@ a:link, a:visited, a:hover, a:active{
 	background-color: #FFC90E; 
 	border: 1px solid grey; 
 	cursor: pointer;
+	font-weight: bold;
+	padding: 5px;
 }
 
 input, textarea{
 	padding: 2px 3px; 
+}
+
+.lightYellow{
+	background-color: #faf9e7; 
 }
 
 /* ------------ Header ------------ */

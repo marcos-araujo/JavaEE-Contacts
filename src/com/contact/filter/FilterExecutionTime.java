@@ -29,7 +29,10 @@ public class FilterExecutionTime implements Filter{
 			String logic = ((HttpServletRequest) request).getParameter("logic");
 			connection.close();
 			long finalTime = System.currentTimeMillis();
-			System.out.println("Request time: " + uri + "?logic=" + logic + " is (ms): " + (finalTime - initialTime));
+			
+			if(!uri.contains("/resources/"))
+				System.out.println("Request time: " + uri + "?logic=" + logic + " is (ms): " + (finalTime - initialTime));
+			
 		}catch(SQLException | URISyntaxException e){
 			System.out.println("Error SQL " + e.getMessage());
 		}
