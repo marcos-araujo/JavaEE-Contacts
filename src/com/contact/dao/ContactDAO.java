@@ -13,6 +13,12 @@ import com.contact.model.Contact;
 
 public class ContactDAO{
 	
+	final String sqlUpdate = "UPDATE CONTACT SET NAME=?, EMAIL=?, ADDRESS=?, BIRTHDATE=? WHERE ID=?";
+	final String sqlInsert = "INSERT INTO CONTACT (NAME, EMAIL, ADDRESS, BIRTHDATE) VALUES (?,?,?,?)";
+	final String sqlSelect = "SELECT ID, NAME, EMAIL, ADDRESS, BIRTHDATE FROM CONTACT";
+	final String sqlSelectId = "SELECT ID, NAME, EMAIL, ADDRESS, BIRTHDATE FROM CONTACT WHERE ID = ";
+	final String sqlDelete = "DELETE FROM CONTACT WHERE ID = ?";
+	
 	private Connection connection;
 	
 	public ContactDAO(Connection connection){
@@ -21,9 +27,8 @@ public class ContactDAO{
 	
 	public void add(Contact contact){
 		PreparedStatement stmt = null;
-		String sql = "INSERT INTO CONTACT (NAME, EMAIL, ADDRESS, BIRTHDATE) VALUES (?,?,?,?)";
 		try{
-			stmt = this.connection.prepareStatement(sql);
+			stmt = this.connection.prepareStatement(sqlInsert);
 			stmt.setString(1, contact.getName());
 			stmt.setString(2, contact.getEmail());
 			stmt.setString(3, contact.getAddress());
@@ -42,9 +47,8 @@ public class ContactDAO{
 	
 	public void alter(Contact contact){
 		PreparedStatement stmt = null;
-		String sql = "UPDATE CONTACT SET NAME=?, EMAIL=?, ADDRESS=?, BIRTHDATE=? WHERE ID=?";
 		try{
-			stmt = connection.prepareStatement(sql);
+			stmt = connection.prepareStatement(sqlUpdate);
 			stmt.setString(1, contact.getName());
 			stmt.setString(2, contact.getEmail());
 			stmt.setString(3, contact.getAddress());
@@ -65,10 +69,9 @@ public class ContactDAO{
 	public List<Contact> list(){
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT ID, NAME, EMAIL, ADDRESS, BIRTHDATE FROM CONTACT";
 		try{
 			List<Contact> contatos = new ArrayList<Contact>();
-			stmt = this.connection.prepareStatement(sql);
+			stmt = this.connection.prepareStatement(sqlSelect);
 			rs = stmt.executeQuery();
 			while(rs.next()){
 				Contact contato = new Contact();
@@ -99,9 +102,8 @@ public class ContactDAO{
 	public Contact get(long id){
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT ID, NAME, EMAIL, ADDRESS, BIRTHDATE FROM CONTACT WHERE ID = " + id;
 		try{
-			stmt = this.connection.prepareStatement(sql);
+			stmt = this.connection.prepareStatement(sqlSelectId + id);
 			rs = stmt.executeQuery();
 			if(rs.next()){
 				Contact contact = new Contact();
@@ -131,9 +133,8 @@ public class ContactDAO{
 	
 	public void delete(Contact contact){
 		PreparedStatement stmt = null;
-		String sql = "DELETE FROM CONTACT WHERE ID = ?";
 		try{
-			stmt = connection.prepareStatement(sql);
+			stmt = connection.prepareStatement(sqlDelete);
 			stmt.setLong(1, contact.getId());
 			stmt.execute();
 		}catch(SQLException e){

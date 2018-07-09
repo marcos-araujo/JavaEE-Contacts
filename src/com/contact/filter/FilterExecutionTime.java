@@ -26,12 +26,12 @@ public class FilterExecutionTime implements Filter{
 			request.setAttribute("connection", connection);
 			chain.doFilter(request, response);
 			String uri = ((HttpServletRequest)request).getRequestURI();
-			String logic = ((HttpServletRequest) request).getParameter("logic");
+			String logic = ((HttpServletRequest)request).getParameter("logic");
 			connection.close();
 			long finalTime = System.currentTimeMillis();
 			
 			if(!uri.contains("/resources/"))
-				System.out.println("Request time: " + uri + "?logic=" + logic + " is (ms): " + (finalTime - initialTime));
+				System.out.println("Request time: " + uri + (logic!=null?("?logic=" + logic):"") + " is (ms): " + (finalTime - initialTime));
 			
 		}catch(SQLException | URISyntaxException e){
 			System.out.println("Error SQL " + e.getMessage());

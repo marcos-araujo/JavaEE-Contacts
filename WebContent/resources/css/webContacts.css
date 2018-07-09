@@ -4,6 +4,14 @@
 
 html{ 
 	font-family: Arial; 
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	margin: 0;
+	padding: 0;
 }
 
 a:link, a:visited, a:hover, a:active{ 
@@ -16,6 +24,7 @@ a:link, a:visited, a:hover, a:active{
 	cursor: pointer;
 	font-weight: bold;
 	padding: 5px;
+	margin-left: 5px;
 }
 
 input, textarea{
@@ -35,6 +44,7 @@ input, textarea{
 	font-size: 40px; 
 	text-align: center; 
 	line-height: 80px; 
+	margin: 5px;
 }
 
 /* ------------ List ------------ */
@@ -42,8 +52,7 @@ input, textarea{
 #tableLista{ 
 	border-collapse: collapse; 
 	text-align: left; 
-	width: 100%; 
-	min-width: 1200px;
+	margin: 5px;
 }
 
 #tableLista td{ 
@@ -68,12 +77,29 @@ input, textarea{
 /* ------------ Footer ------------ */
 
 #footer{ 
-	position: absolute; 
 	bottom: 10px; 
-	width: 97%; 
+	right: 10px;
+	position: absolute;
+	border: 10px;
+	width: auto; 
 }
 
 a.about:link, a.about:visited, a.about:hover{ 
 	text-decoration: underline !important; 
 	float:right; 
+}
+
+/* ------------ About ------------ */
+
+.about{
+	margin: 15px 0 0 5px;
+	font-weight: bold;
+}
+
+#about{
+	font-size: 20px; 	
+}
+
+ul{
+	margin: 0;
 }

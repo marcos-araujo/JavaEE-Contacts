@@ -8,10 +8,10 @@
 
 <table id="tableLista">
 	<tr id="tableHeader" align="center" valign="middle">
-		<th width="30%"><b>Name</b></th>
+		<th width="35%"><b>Name</b></th>
 		<th width="26%"><b>E-mail</b></th>
 		<th width="30%"><b>Address</b></th>
-		<th width="10%"><b>Date of Birth</b></th>
+		<th width="15%"><b>Date of Birth</b></th>
 		<th width="2%">&nbsp;</th>
 		<th width="2%">&nbsp;</th>
 	</tr>
