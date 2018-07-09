@@ -2,10 +2,13 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<link href="resources/css/webContacts.css" rel="stylesheet">
 		<link rel="shortcut icon" type="image/x-icon" href="resources/images/favicon.ico">
+		<link href="resources/css/jquery-ui.css" rel="stylesheet">
+		<link href="resources/css/contact.css" rel="stylesheet">
+		<link href="resources/css/webContacts.css" rel="stylesheet">
+		<script src="resources/js/jquery.js"></script>
+		<script src="resources/js/jquery-ui.js"></script>
 		<title>Web Contacts</title>
 	</head>
 	<body class="lightYellow">
-
 		<div id="header">Web Contacts</div>

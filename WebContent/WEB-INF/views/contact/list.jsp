@@ -4,7 +4,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
 <c:import url="../general/header.jsp" />
-<br />
 
 <table id="tableLista">
 	<tr id="tableHeader" align="center" valign="middle">

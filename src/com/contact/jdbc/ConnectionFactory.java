@@ -13,7 +13,7 @@ public class ConnectionFactory{
 	private String USERNAME;
 	private String PASSWORD;
 	private String URL;
-	private boolean local = true;
+	private boolean local = false;
 	
     public Connection getConnection() throws URISyntaxException{
     	
