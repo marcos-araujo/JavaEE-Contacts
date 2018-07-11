@@ -9,15 +9,19 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.contact.dao.ContactDAO;
 import com.contact.model.Contact;
 
 public class AlterAdd implements Logic{
 	
+	static final Logger logger = Logger.getLogger(AlterAdd.class);
+	
 	public String execute(HttpServletRequest req, HttpServletResponse res) throws Exception{
 		Long id = !req.getParameter("id").equals("") ? Long.parseLong(req.getParameter("id")) : null;
 		String name = req.getParameter("name");
-		String address= req.getParameter("address");
+		String address = req.getParameter("address");
 		String email = req.getParameter("email");
 		String dateText = req.getParameter("birthdate");
 		Calendar birthdate = null;
@@ -27,8 +31,9 @@ public class AlterAdd implements Logic{
 				birthdate = Calendar.getInstance();
 				birthdate.setTime(date);
 			}catch(ParseException e){
-				e.printStackTrace();
+				logger.error("date formating error", e);
 			}
+		
 		Contact contact = new Contact();
 		contact.setId(id);
 		contact.setName(name);
@@ -48,8 +53,10 @@ public class AlterAdd implements Logic{
 			dao.alter(contact);
 		else
 			dao.add(contact);
-		System.out.println("Alter/Add");
+		
+		logger.info("Alter/Add");
+		
 		return "mvc?logic=ListContacts";
 	}
-			
+	
 }

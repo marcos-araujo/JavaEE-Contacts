@@ -1,6 +1,5 @@
 package com.contact.model;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Contact{
@@ -46,9 +45,4 @@ public class Contact{
 		this.birthdate = birthdate;
 	}
 	
-	public String getTextDate(){
-		if(this.getBirthdate() != null)
-			return new SimpleDateFormat("dd/MM/yyyy").format(this.getBirthdate().getTime());
-		return "";
-	}
 }

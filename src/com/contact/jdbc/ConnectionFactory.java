@@ -6,41 +6,46 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import org.apache.log4j.Logger;
+
+import com.contact.mvc.logic.AlterAdd;
+
 public class ConnectionFactory{
 	
-	private String FORNAME;
-	private String DATABASE;
-	private String USERNAME;
-	private String PASSWORD;
-	private String URL;
-	private boolean local = false;
+	static final Logger logger = Logger.getLogger(AlterAdd.class);
 	
     public Connection getConnection() throws URISyntaxException{
+    	String forname;
+    	String database;
+    	String username;
+    	String password;
+    	String url;
+    	boolean local = System.getenv("DATABASE_URL") == null;
     	
     	if(local){
-    		FORNAME	 = "com.mysql.jdbc.Driver";
-    		DATABASE = "PROJECTS";
-    		USERNAME = "root";
-    		PASSWORD = "root";
-    		URL      = "jdbc:mysql://localhost/" + DATABASE + "?autoReconnect=true&useSSL=false";
+    		forname	 = "com.mysql.cj.jdbc.Driver";
+    		database = "PROJECTS";
+    		username = "root";
+    		password = "root";
+    		url      = "jdbc:mysql://localhost/" + database + "?autoReconnect=true&useSSL=false&useTimezone=true&serverTimezone=UTC";
     	}else{
     		URI dbUri = new URI(System.getenv("DATABASE_URL"));
-    		FORNAME  = "org.postgresql.Driver";
-    		USERNAME = dbUri.getUserInfo().split(":")[0];
-    		PASSWORD = dbUri.getUserInfo().split(":")[1];
-    		URL 	 = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+    		forname  = "org.postgresql.Driver";
+    		username = dbUri.getUserInfo().split(":")[0];
+    		password = dbUri.getUserInfo().split(":")[1];
+    		url 	 = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
     	}
         
 		try{
-			Class.forName(FORNAME);
-			return DriverManager.getConnection(URL, USERNAME, PASSWORD);
+			Class.forName(forname);
+			return DriverManager.getConnection(url, username, password);
 		}catch(SQLException e){
-			e.printStackTrace();
+			logger.error(e);
 			throw new RuntimeException(e);
 		}catch(ClassNotFoundException e){
-			e.printStackTrace();
+			logger.error(e);
 		}
 		return null;
 	}
-
+    
 }

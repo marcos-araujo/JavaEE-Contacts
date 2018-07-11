@@ -14,10 +14,15 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.Logger;
+
 import com.contact.jdbc.ConnectionFactory;
+import com.contact.mvc.logic.AlterAdd;
 
 @WebFilter("/*")
 public class FilterExecutionTime implements Filter{
+	
+	static final Logger logger = Logger.getLogger(AlterAdd.class);
 	
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException{
 		try{
@@ -31,10 +36,10 @@ public class FilterExecutionTime implements Filter{
 			long finalTime = System.currentTimeMillis();
 			
 			if(!uri.contains("/resources/"))
-				System.out.println("Request time: " + uri + (logic!=null?("?logic=" + logic):"") + " is (ms): " + (finalTime - initialTime));
+				logger.info("Request time: " + uri + (logic!=null?("?logic=" + logic):"") + " is (ms): " + (finalTime - initialTime));
 			
 		}catch(SQLException | URISyntaxException e){
-			System.out.println("Error SQL " + e.getMessage());
+			logger.error(e);
 		}
 	}
 
