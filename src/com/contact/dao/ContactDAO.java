@@ -54,7 +54,7 @@ public class ContactDAO{
 				Contact contato = new Contact();
 				contato.setId(rs.getLong("id"));
 				contato.setName(rs.getString("name"));
-				contato.setEmail(rs.getString("email"));
+				 contato.setEmail(rs.getString("email"));
 				contato.setAddress(rs.getString("address"));
 				if(rs.getDate("birthdate") != null){
 					Calendar data = GregorianCalendar.getInstance();
