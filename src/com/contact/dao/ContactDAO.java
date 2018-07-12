@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import com.contact.model.Contact;
@@ -56,8 +57,8 @@ public class ContactDAO{
 				contato.setEmail(rs.getString("email"));
 				contato.setAddress(rs.getString("address"));
 				if(rs.getDate("birthdate") != null){
-					Calendar data = Calendar.getInstance();
-					data.setTime(rs.getDate("birthdate"));
+					Calendar data = GregorianCalendar.getInstance();
+					data.setTime(new java.util.Date(rs.getDate("birthdate").getTime()));
 					contato.setBirthdate(data);
 				}
 				contatos.add(contato);

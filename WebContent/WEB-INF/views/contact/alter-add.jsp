@@ -1,9 +1,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="mytags" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 		
 <c:import url="../general/header.jsp" />
 <form action="mvc" method="POST">
+	
+	<fmt:formatDate pattern = "yyyy-MM-dd" value ="${contact.birthdate.time}" var="strDate"/> 
+	
 	<table border="0" width="500">
 		<tr>
 			<td>Name</td>
@@ -12,7 +16,8 @@
 		<tr>
 			<td>E-mail</td>
 			<td align="left"><input type="text" name="email" value="${contact.email}" size="50" maxlength="80" ></td>
-			<td align="right">Date of Birth<mytags:fieldDate id="birthdate" value="${contact.textDate}" /></td>
+			
+			<td align="right">Date of Birth<mytags:fieldDate id="birthdate" value="${strDate}" /></td>
 		</tr>
 		<tr>
 			<td>Address</td>
