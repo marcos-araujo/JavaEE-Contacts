@@ -6,7 +6,7 @@
 <c:import url="../general/header.jsp" />
 <form action="mvc" method="POST">
 	
-	<fmt:formatDate pattern = "yyyy-MM-dd" value ="${contact.birthdate.time}" var="strDate"/> 
+	<fmt:formatDate pattern = "dd/MM/yyyy" value ="${contact.birthdate.time}" var="strDate"/> 
 	
 	<table border="0" width="500">
 		<tr>
