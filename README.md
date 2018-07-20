@@ -5,7 +5,7 @@ Store, edit and delete contacts.
 Design Patterns
 <ul> 
 	<li>Model View Controler</li>
-	<li>Data Acess Object</li>
+	<li>Data Acess Object </li>
 </ul>
 
 APIs and Frameworks	
