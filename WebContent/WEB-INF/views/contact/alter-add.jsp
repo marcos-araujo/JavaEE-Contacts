@@ -8,7 +8,7 @@
 	
 	<fmt:formatDate pattern = "dd/MM/yyyy" value ="${contact.birthdate.time}" var="strDate"/> 
 	
-	<table border="0" width="500">
+	<table>
 		<tr>
 			<td>Name</td>
 			<td colspan="2"><input type="text" name="name" value="${contact.name}" size="80" maxlength="80" /></td>
@@ -31,7 +31,7 @@
 	<input type="submit" value="Save" class="button"/>
 	<a href="mvc?logic=ListContacts"><input class="button" type="button" value="Cancel" /></a>
 	<br /><br />
-	<span><b>${message}</b></span>
+	<span id="message"><b>${message}</b></span>
 </form>
 <br />
 <c:import url="../general/footer.jsp" />

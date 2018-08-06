@@ -35,6 +35,10 @@ input, textarea{
 	background-color: #faf9e7; 
 }
 
+#message{
+	margin-left: 5px;
+}
+
 /* ------------ Header ------------ */
 
 #header{ 
@@ -45,6 +49,7 @@ input, textarea{
 	text-align: center; 
 	line-height: 80px; 
 	margin: 5px;
+	min-width: 1024px;
 }
 
 /* ------------ List ------------ */
@@ -53,6 +58,7 @@ input, textarea{
 	border-collapse: collapse; 
 	text-align: left; 
 	margin: 5px;
+	min-width: 1024px;
 }
 
 #tableLista td{ 

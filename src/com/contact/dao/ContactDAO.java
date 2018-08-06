@@ -16,11 +16,11 @@ public class ContactDAO{
 	
 	private Connection connection;
 	
-	private static final String SQL_UPDATE = "UPDATE CONTACT SET NAME=?, EMAIL=?, ADDRESS=?, BIRTHDATE=? WHERE ID=?";
-	private static final String SQL_INSERT = "INSERT INTO CONTACT (NAME, EMAIL, ADDRESS, BIRTHDATE) VALUES (?,?,?,?)";
-	private static final String SQL_SELECT = "SELECT ID, NAME, EMAIL, ADDRESS, BIRTHDATE FROM CONTACT";
-	private static final String SQL_SELECT_ID = "SELECT ID, NAME, EMAIL, ADDRESS, BIRTHDATE FROM CONTACT WHERE ID = ?";
-	private static final String SQL_DELETE = "DELETE FROM CONTACT WHERE ID = ?";
+	private static final String SQL_UPDATE = "UPDATE WEB_CONTACTS SET NAME=?, EMAIL=?, ADDRESS=?, BIRTHDATE=? WHERE ID=?";
+	private static final String SQL_INSERT = "INSERT INTO WEB_CONTACTS (NAME, EMAIL, ADDRESS, BIRTHDATE) VALUES (?,?,?,?)";
+	private static final String SQL_SELECT = "SELECT ID, NAME, EMAIL, ADDRESS, BIRTHDATE FROM WEB_CONTACTS";
+	private static final String SQL_SELECT_ID = "SELECT ID, NAME, EMAIL, ADDRESS, BIRTHDATE FROM WEB_CONTACTS WHERE ID = ?";
+	private static final String SQL_DELETE = "DELETE FROM WEB_CONTACTS WHERE ID = ?";
 	
 	public ContactDAO(Connection connection){
 		this.connection = connection;
