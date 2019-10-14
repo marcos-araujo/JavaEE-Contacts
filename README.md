@@ -1,6 +1,6 @@
 # Web Contacts 
 
-Store, edit and delete contacts.
+Store, edit and delete contacts
 
 Design Patterns
 <ul> 
