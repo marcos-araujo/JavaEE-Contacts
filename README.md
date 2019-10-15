@@ -4,7 +4,7 @@
 ## General info
 Project created for the purpose of studying the some java technologies.
 
-##Technologies
+## Technologies
 
 Project created  with:
 <ul>	
