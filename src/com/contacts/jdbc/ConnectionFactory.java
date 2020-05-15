@@ -6,7 +6,6 @@ import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -16,28 +15,12 @@ public class ConnectionFactory{
     private static final Logger logger = LogManager.getLogger(ConnectionFactory.class);
 	
     public Connection getConnection() throws URISyntaxException, IOException{
-    	String forname;
-    	String database;
-    	String username;
-    	String password;
-    	String url;
-    	boolean isHerokuEnv = System.getenv("DATABASE_URL") != null;
-    	
-    	if(isHerokuEnv){
-    		// config for heroku
-    		URI dbUri = new URI(System.getenv("DATABASE_URL"));
-    		forname = "org.postgresql.Driver";
-    		username = dbUri.getUserInfo().split(":")[0];
-    		password = dbUri.getUserInfo().split(":")[1];
-    		url = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
-    	}else{
-    		Properties properties = new Properties();
-    		properties.load(getClass().getClassLoader().getResourceAsStream("config.properties"));
-    		forname	= properties.get("database.server.forname").toString();
-    		username = properties.get("database.server.user").toString();
-    		password = properties.get("database.server.password").toString();
-    		url = properties.get("database.server.url").toString();
-    	}
+    	URI dbUri = new URI(System.getenv("DATABASE_URL"));
+
+    	String forname = "org.postgresql.Driver";
+    	String username = dbUri.getUserInfo().split(":")[0];
+    	String password = dbUri.getUserInfo().split(":")[1];
+    	String url = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
         
 		try{
 			Class.forName(forname);
