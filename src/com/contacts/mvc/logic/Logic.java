@@ -1,4 +1,4 @@
-package com.contact.mvc.logic;
+package com.contacts.mvc.logic;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

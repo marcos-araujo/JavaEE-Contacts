@@ -1,4 +1,4 @@
-package com.contact.model;
+package com.contacts.model;
 
 import java.util.Calendar;
 

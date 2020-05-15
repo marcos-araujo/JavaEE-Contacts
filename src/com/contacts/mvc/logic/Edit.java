@@ -1,4 +1,4 @@
-package com.contact.mvc.logic;
+package com.contacts.mvc.logic;
 
 import java.sql.Connection;
 import java.text.ParseException;
@@ -9,14 +9,16 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import com.contact.dao.ContactDAO;
-import com.contact.model.Contact;
+import com.contacts.dao.ContactsDAO;
+import com.contacts.model.Contact;
+import com.contacts.mvc.logic.aux.Config;
 
-public class AlterAdd implements Logic{
+public class Edit implements Logic{
 	
-	static final Logger logger = Logger.getLogger(AlterAdd.class);
+    private static final Logger logger = LogManager.getLogger(Edit.class);
 	
 	public String execute(HttpServletRequest req, HttpServletResponse res) throws Exception{
 		Long id = !req.getParameter("id").equals("") ? Long.parseLong(req.getParameter("id")) : null;
@@ -44,11 +46,11 @@ public class AlterAdd implements Logic{
 		if(contact.getName().equals("")){
 			req.setAttribute("contact", contact);
 			req.setAttribute("message", "Name is required!");
-			return "/WEB-INF/views/contact/alter-add.jsp";
+			return Config.PAGE_EDIT;
 		}
 		
 		Connection connection = (Connection) req.getAttribute("connection");
-		ContactDAO dao = new ContactDAO(connection);
+		ContactsDAO dao = new ContactsDAO(connection);
 		if(contact.getId() != null)
 			dao.alter(contact);
 		else
@@ -56,7 +58,7 @@ public class AlterAdd implements Logic{
 		
 		logger.info("Alter/Add");
 		
-		return "mvc?logic=ListContacts";
+		return Config.LOGIC_LIST;
 	}
 	
 }

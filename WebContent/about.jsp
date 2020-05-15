@@ -4,7 +4,7 @@
 
 	<div id="about">
 
-	<div class="about">Store, edit and delete contacts</div>
+	<div class="about">Sample project created for studying some Java EE technologies.</div>
 	
 	<div class="about">Design Patterns</div>
 	<ul> 
@@ -20,11 +20,11 @@
 		<li>Filter</li>
 	</ul>
 	
-	<div class="about">Free Software <a target="_blank" href="https://github.com/marcos-morgado/Web-Contacts">Code</a>.</div>
+	<div class="about">Free Software <a target="_blank" href="https://github.com/marcos-araujo/JavaEE-Contacts">Code</a>.</div>
 	
 	<br />
 	
-	<a href="mvc?logic=ListContacts"><input type="button" value="Back" class="button"/></a>
+	<a href="mvc?logic=List"><input type="button" value="Back" class="button"/></a>
 	<br /><br />
 	
 	</div>

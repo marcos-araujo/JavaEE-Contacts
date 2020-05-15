@@ -1,18 +1,10 @@
-# Web Contacts 
-> Store, edit and delete contacts.
+# Java EE Contacts 
+Create, edit, visualize and delete contacts.
 
-## General info
-Project created for the purpose of studying the some java technologies.
+## General Info
+Sample project created for studying some Java EE technologies.
 
-## Technologies
 
-Project created  with:
-<ul>	
-	<li>Servlet</li>
-	<li>JSP</li>
-	<li>JSTL</li>
-	<li>Filter</li>
-</ul>
 
 ## Design Patterns
 <ul> 
@@ -20,5 +12,11 @@ Project created  with:
 	<li>Data Acess Object </li>
 </ul>
 
-## Contact
-Created by [@marcos-araujo](http://marcosmorgado.com/) - feel free to contact me!
+## Technologies
+<ul>	
+	<li>Servlet</li>
+	<li>JSP</li>
+	<li>JSTL</li>
+	<li>Filter</li>
+</ul>
+

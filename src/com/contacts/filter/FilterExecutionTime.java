@@ -1,4 +1,4 @@
-package com.contact.filter;
+package com.contacts.filter;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -14,15 +14,15 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import com.contact.jdbc.ConnectionFactory;
-import com.contact.mvc.logic.AlterAdd;
+import com.contacts.jdbc.ConnectionFactory;
 
 @WebFilter("/*")
 public class FilterExecutionTime implements Filter{
 	
-	static final Logger logger = Logger.getLogger(AlterAdd.class);
+    private static final Logger logger = LogManager.getLogger(FilterExecutionTime.class);
 	
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException{
 		try{

@@ -1,4 +1,4 @@
-package com.contact.jdbc;
+package com.contacts.jdbc;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -6,13 +6,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import org.apache.log4j.Logger;
-
-import com.contact.mvc.logic.AlterAdd;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class ConnectionFactory{
 	
-	static final Logger logger = Logger.getLogger(AlterAdd.class);
+    private static final Logger logger = LogManager.getLogger(ConnectionFactory.class);
 	
     public Connection getConnection() throws URISyntaxException{
     	String forname;
@@ -30,10 +29,10 @@ public class ConnectionFactory{
     		url      = "jdbc:mysql://localhost/" + database + "?autoReconnect=true&useSSL=false&useTimezone=true&serverTimezone=UTC";
     	}else{
     		URI dbUri = new URI(System.getenv("DATABASE_URL"));
-    		forname  = "org.postgresql.Driver";
+    		forname = "org.postgresql.Driver";
     		username = dbUri.getUserInfo().split(":")[0];
     		password = dbUri.getUserInfo().split(":")[1];
-    		url 	 = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+    		url = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
     	}
         
 		try{

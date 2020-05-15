@@ -1,4 +1,4 @@
-package com.contact.servlet;
+package com.contacts.servlet;
 
 import java.io.IOException;
 
@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.contact.mvc.logic.Logic;
-import com.contact.mvc.logic.LogicAux;
+import com.contacts.mvc.logic.Logic;
+import com.contacts.mvc.logic.LogicAux;
 
 @SuppressWarnings("serial")
 @WebServlet("/mvc")
