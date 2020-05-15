@@ -17,7 +17,6 @@ public class ConnectionFactory{
 	
     public Connection getConnection() throws URISyntaxException, IOException{
     	String forname;
-    	String database;
     	String username;
     	String password;
     	String url;
