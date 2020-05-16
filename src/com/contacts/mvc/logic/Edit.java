@@ -56,7 +56,7 @@ public class Edit implements Logic{
 		else
 			dao.add(contact);
 		
-		logger.info("Alter/Add");
+		logger.info("Edit");
 		
 		return Config.LOGIC_LIST;
 	}
