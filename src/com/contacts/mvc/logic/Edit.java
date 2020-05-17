@@ -14,7 +14,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.contacts.dao.ContactsDAO;
 import com.contacts.model.Contact;
-import com.contacts.mvc.logic.aux.Config;
+import com.contacts.mvc.logic.aux.Constants;
 
 public class Edit implements Logic{
 	
@@ -46,7 +46,7 @@ public class Edit implements Logic{
 		if(contact.getName().equals("")){
 			req.setAttribute("contact", contact);
 			req.setAttribute("message", "Name is required!");
-			return Config.PAGE_EDIT;
+			return Constants.PAGE_EDIT;
 		}
 		
 		Connection connection = (Connection) req.getAttribute("connection");
@@ -58,7 +58,7 @@ public class Edit implements Logic{
 		
 		logger.info("Edit");
 		
-		return Config.LOGIC_LIST;
+		return Constants.LOGIC_LIST;
 	}
 	
 }

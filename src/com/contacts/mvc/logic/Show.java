@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.contacts.dao.ContactsDAO;
 import com.contacts.model.Contact;
-import com.contacts.mvc.logic.aux.Config;
+import com.contacts.mvc.logic.aux.Constants;
 
 public class Show implements Logic{
 	
@@ -23,7 +23,7 @@ public class Show implements Logic{
 		Contact contact = dao.get(id);
 		req.setAttribute("contact", contact);
 		logger.info("Show");
-		return Config.PAGE_EDIT;
+		return Constants.PAGE_EDIT;
 	}
 			
 }
