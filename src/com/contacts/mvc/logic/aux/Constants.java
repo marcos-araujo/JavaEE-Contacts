@@ -16,10 +16,10 @@ public class Constants {
 	public static final String NAME = "name";
 	public static final String ID = "id";
 
-	public static final String UPDATE = "UPDATE JAVAEE_CONTACTS SET NAME=?, EMAIL=?, ADDRESS=?, BIRTHDATE=? WHERE ID=?";
-	public static final String INSERT = "INSERT INTO JAVAEE_CONTACTS (NAME, EMAIL, ADDRESS, BIRTHDATE) VALUES (?,?,?,?)";
-	public static final String SELECT = "SELECT ID, NAME, EMAIL, ADDRESS, BIRTHDATE FROM JAVAEE_CONTACTS";
-	public static final String SELECT_ID = "SELECT ID, NAME, EMAIL, ADDRESS, BIRTHDATE FROM JAVAEE_CONTACTS WHERE ID = ?";
-	public static final String DELETE = "DELETE FROM JAVAEE_CONTACTS WHERE ID = ?";
+	public static final String UPDATE = "UPDATE CONTACTS SET NAME=?, EMAIL=?, ADDRESS=?, BIRTHDATE=? WHERE ID=?";
+	public static final String INSERT = "INSERT INTO CONTACTS (NAME, EMAIL, ADDRESS, BIRTHDATE) VALUES (?,?,?,?)";
+	public static final String SELECT = "SELECT ID, NAME, EMAIL, ADDRESS, BIRTHDATE FROM CONTACTS";
+	public static final String SELECT_ID = "SELECT ID, NAME, EMAIL, ADDRESS, BIRTHDATE FROM CONTACTS WHERE ID = ?";
+	public static final String DELETE = "DELETE FROM CONTACTS WHERE ID = ?";
 
 }

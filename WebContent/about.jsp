@@ -20,6 +20,14 @@
 		<li>Filter</li>
 	</ul>
 	
+	<div class="about">How it works</div>
+	<ul>	
+		<li>The FilterExecutionTime instantiates the connection and adds it inside the request as an attribute.</li>
+		<li>The ControllerServlet receives all requests and delegates it to the logic class according to the URL parameter.</li>
+		<li>Queries are executed by Prepared Statements.</li>
+		<li>The view layer was built in JSP.</li>
+	</ul>
+	
 	<div class="about">Free Software <a target="_blank" href="https://github.com/marcos-araujo/JavaEE-Contacts">Code</a>.</div>
 	
 	<br />

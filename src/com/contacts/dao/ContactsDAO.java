@@ -17,7 +17,6 @@ public class ContactsDAO{
 	
 	private Connection connection;
 	
-	
 	public ContactsDAO(Connection connection){
 		this.connection = connection;
 	}
