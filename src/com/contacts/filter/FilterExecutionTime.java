@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -29,9 +30,16 @@ public class FilterExecutionTime implements Filter{
 			long initialTime = System.currentTimeMillis();
 			Connection connection = new ConnectionFactory().getConnection();
 			request.setAttribute("connection", connection);
-			chain.doFilter(request, response);
-			String uri = ((HttpServletRequest)request).getRequestURI();
 			String logic = ((HttpServletRequest)request).getParameter("logic");
+			String uri = ((HttpServletRequest)request).getRequestURI();
+			
+			if(logic == null && !uri.contains("/resources/")) {
+				 RequestDispatcher rd = request.getRequestDispatcher("/mvc?logic=List");
+                 rd.include(request, response);
+			}else { 
+				chain.doFilter(request, response);
+			}
+			
 			connection.close();
 			long finalTime = System.currentTimeMillis();
 			

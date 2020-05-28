@@ -3,7 +3,7 @@ package com.contacts.mvc.logic;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.contacts.mvc.logic.aux.Constants;
+import com.contacts.mvc.logic.aux.Constant;
 
 public class LogicAux {
 
@@ -17,10 +17,10 @@ public class LogicAux {
 		Logic logic = null;
 		
 	    try {
-	    	classLogic = Class.forName(Constants.PACKAGE_LOGIC + className);
+	    	classLogic = Class.forName(Constant.PACKAGE_LOGIC + className);
 	    } catch (ClassNotFoundException e) {
 	    	logger.error("Logic not found", e);
-	    	classLogic = Class.forName(Constants.PACKAGE_LIST);
+	    	classLogic = Class.forName(Constant.PACKAGE_LIST);
 	    }
 	    
 	    try {

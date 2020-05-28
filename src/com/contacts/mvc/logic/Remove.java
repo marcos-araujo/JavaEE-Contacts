@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.contacts.dao.ContactsDAO;
 import com.contacts.model.Contact;
-import com.contacts.mvc.logic.aux.Constants;
+import com.contacts.mvc.logic.aux.Constant;
 
 public class Remove implements Logic{
 	
@@ -24,7 +24,7 @@ public class Remove implements Logic{
 		ContactsDAO dao = new ContactsDAO(connection);
 		dao.delete(contact);
 		logger.info("Remove");
-		return Constants.LOGIC_LIST;
+		return Constant.LOGIC_LIST;
 	}
 
 }
