@@ -1,5 +1,5 @@
 		<div id="footer">
-			<a class="about" href="about.jsp">About</a>
+			<a id="about" class="about" href="mvc?logic=About">About</a>
 		</div>
 	</body>
 </html>

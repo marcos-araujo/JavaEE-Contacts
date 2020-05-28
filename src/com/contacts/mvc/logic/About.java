@@ -8,13 +8,13 @@ import org.apache.logging.log4j.Logger;
 
 import com.contacts.mvc.logic.aux.Constant;
 
-public class New implements Logic{
+public class About implements Logic{
 	
-    private static final Logger logger = LogManager.getLogger(New.class);
-
+    private static final Logger logger = LogManager.getLogger(About.class);
+	
 	public String execute(HttpServletRequest req, HttpServletResponse res) throws Exception{
-		logger.info("New");
-		return Constant.PAGE_EDIT;
+		logger.info("About");
+		return Constant.PAGE_ABOUT;
 	}
 			
 }

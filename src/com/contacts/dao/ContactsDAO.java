@@ -11,7 +11,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import com.contacts.model.Contact;
-import com.contacts.mvc.logic.aux.Constants;
+import com.contacts.mvc.logic.aux.Constant;
 
 public class ContactsDAO{
 	
@@ -22,7 +22,7 @@ public class ContactsDAO{
 	}
 	
 	public void add(Contact contact) throws SQLException{
-		try(PreparedStatement stmt = this.connection.prepareStatement(Constants.INSERT)){
+		try(PreparedStatement stmt = this.connection.prepareStatement(Constant.INSERT)){
 			stmt.setString(1, contact.getName());
 			stmt.setString(2, contact.getEmail());
 			stmt.setString(3, contact.getAddress());
@@ -32,7 +32,7 @@ public class ContactsDAO{
 	}
 	
 	public void alter(Contact contact) throws SQLException{
-		try(PreparedStatement stmt = this.connection.prepareStatement(Constants.UPDATE)){
+		try(PreparedStatement stmt = this.connection.prepareStatement(Constant.UPDATE)){
 			stmt.setString(1, contact.getName());
 			stmt.setString(2, contact.getEmail());
 			stmt.setString(3, contact.getAddress());
@@ -43,17 +43,17 @@ public class ContactsDAO{
 	}
 	
 	public List<Contact> list() throws SQLException{
-		try(PreparedStatement stmt = this.connection.prepareStatement(Constants.SELECT); ResultSet rs = stmt.executeQuery()){
+		try(PreparedStatement stmt = this.connection.prepareStatement(Constant.SELECT); ResultSet rs = stmt.executeQuery()){
 			List<Contact> contatos = new ArrayList<>();
 			while(rs.next()){
 				Contact contato = new Contact();
-				contato.setId(rs.getLong(Constants.ID));
-				contato.setName(rs.getString(Constants.NAME));
-				contato.setEmail(rs.getString(Constants.EMAIL));
-				contato.setAddress(rs.getString(Constants.ADDRESS));
-				if(rs.getDate(Constants.BIRTHDATE) != null){
+				contato.setId(rs.getLong(Constant.ID));
+				contato.setName(rs.getString(Constant.NAME));
+				contato.setEmail(rs.getString(Constant.EMAIL));
+				contato.setAddress(rs.getString(Constant.ADDRESS));
+				if(rs.getDate(Constant.BIRTHDATE) != null){
 					Calendar data = GregorianCalendar.getInstance();
-					data.setTime(new java.util.Date(rs.getDate(Constants.BIRTHDATE).getTime()));
+					data.setTime(new java.util.Date(rs.getDate(Constant.BIRTHDATE).getTime()));
 					contato.setBirthdate(data);
 				}
 				contatos.add(contato);
@@ -63,18 +63,18 @@ public class ContactsDAO{
 	}
 	
 	public Contact get(long id) throws SQLException{
-		try(PreparedStatement stmt = this.connection.prepareStatement(Constants.SELECT_ID)){
+		try(PreparedStatement stmt = this.connection.prepareStatement(Constant.SELECT_ID)){
 			stmt.setLong(1, id);
 			try(ResultSet rs = stmt.executeQuery()){
 				if(rs.next()){
 					Contact contact = new Contact();
-					contact.setId(rs.getLong(Constants.ID));
-					contact.setName(rs.getString(Constants.NAME));
-					contact.setEmail(rs.getString(Constants.EMAIL));
-					contact.setAddress(rs.getString(Constants.ADDRESS));
-					if(rs.getDate(Constants.BIRTHDATE) != null){
+					contact.setId(rs.getLong(Constant.ID));
+					contact.setName(rs.getString(Constant.NAME));
+					contact.setEmail(rs.getString(Constant.EMAIL));
+					contact.setAddress(rs.getString(Constant.ADDRESS));
+					if(rs.getDate(Constant.BIRTHDATE) != null){
 						Calendar data = Calendar.getInstance();
-						data.setTime(rs.getDate(Constants.BIRTHDATE));
+						data.setTime(rs.getDate(Constant.BIRTHDATE));
 						contact.setBirthdate(data);
 					}
 					return contact;
@@ -85,7 +85,7 @@ public class ContactsDAO{
 	}
 	
 	public void delete(Contact contact) throws SQLException{
-		try(PreparedStatement stmt = connection.prepareStatement(Constants.DELETE)){
+		try(PreparedStatement stmt = connection.prepareStatement(Constant.DELETE)){
 			stmt.setLong(1, contact.getId());
 			stmt.execute();
 		}
