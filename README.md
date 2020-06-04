@@ -1,4 +1,4 @@
-# Java EE Contacts 
+# Servlet Contacts 
 Create, edit, visualize and delete contacts.
 
 ## General Info

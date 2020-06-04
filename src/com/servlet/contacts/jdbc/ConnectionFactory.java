@@ -1,4 +1,4 @@
-package com.contacts.jdbc;
+package com.servlet.contacts.jdbc;
 
 import java.io.IOException;
 import java.net.URI;

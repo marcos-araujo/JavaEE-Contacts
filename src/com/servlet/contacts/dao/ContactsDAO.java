@@ -1,4 +1,4 @@
-package com.contacts.dao;
+package com.servlet.contacts.dao;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -10,8 +10,8 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import com.contacts.model.Contact;
-import com.contacts.mvc.logic.aux.Constant;
+import com.servlet.contacts.model.Contact;
+import com.servlet.contacts.mvc.logic.aux.Constant;
 
 public class ContactsDAO{
 	

@@ -1,4 +1,4 @@
-package com.contacts.mvc.logic;
+package com.servlet.contacts.mvc.logic;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -6,15 +6,15 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.contacts.mvc.logic.aux.Constant;
+import com.servlet.contacts.mvc.logic.aux.Constant;
 
-public class New implements Logic{
+public class About implements Logic{
 	
-    private static final Logger logger = LogManager.getLogger(New.class);
-
+    private static final Logger logger = LogManager.getLogger(About.class);
+	
 	public String execute(HttpServletRequest req, HttpServletResponse res) throws Exception{
-		logger.info("New");
-		return Constant.PAGE_EDIT;
+		logger.info("About");
+		return Constant.PAGE_ABOUT;
 	}
 			
 }

@@ -1,9 +1,9 @@
-package com.contacts.mvc.logic;
+package com.servlet.contacts.mvc.logic;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.contacts.mvc.logic.aux.Constant;
+import com.servlet.contacts.mvc.logic.aux.Constant;
 
 public class LogicAux {
 

@@ -1,4 +1,4 @@
-package com.contacts.model;
+package com.servlet.contacts.model;
 
 import java.util.Calendar;
 

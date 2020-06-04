@@ -28,7 +28,7 @@
 		<li>The view layer was built in JSP.</li>
 	</ul>
 	
-	<div class="about">Free Software <a target="_blank" href="https://github.com/marcos-araujo/JavaEE-Contacts">Code</a>.</div>
+	<div class="about">Free Software <a target="_blank" href="https://github.com/marcos-araujo/Servlet-Contacts">Code</a>.</div>
 	
 	<br />
 	

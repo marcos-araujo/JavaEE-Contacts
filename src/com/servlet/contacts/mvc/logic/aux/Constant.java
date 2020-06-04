@@ -1,4 +1,4 @@
-package com.contacts.mvc.logic.aux;
+package com.servlet.contacts.mvc.logic.aux;
 
 public class Constant {
 
