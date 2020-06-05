@@ -3,7 +3,7 @@ package com.servlet.contacts.mvc.logic.aux;
 public class Constant {
 
 	public final static String PACKAGE_LOGIC = "com.servlet.contacts.mvc.logic.";
-	public final static String PACKAGE_LIST = "com.servlet.contacts.mvc.logic.";
+	public final static String PACKAGE_LIST = "com.servlet.contacts.mvc.logic.List";
 	
 	public final static String PAGE_LIST = "/WEB-INF/views/contacts/list.jsp";
 	public final static String PAGE_EDIT = "/WEB-INF/views/contacts/edit.jsp";
