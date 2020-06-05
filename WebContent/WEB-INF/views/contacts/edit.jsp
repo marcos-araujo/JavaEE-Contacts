@@ -27,7 +27,7 @@
 
 	<br />
 	<input type="hidden" name="id" value="${contact.id}"/>
-	<input type="hidden" name="logic" value="Edit"/>
+	<input type="hidden" name="logic" value="Save"/>
 	<input type="submit" value="Save" class="button"/>
 	<a href="mvc?logic=List"><input class="button" type="button" value="Cancel" /></a>
 	<br /><br />

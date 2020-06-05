@@ -34,7 +34,7 @@
 			</td>
 			
 			<td align="center">
-				<a href="mvc?logic=Show&id=${contact.id}" title="Edit">
+				<a href="mvc?logic=Edit&id=${contact.id}" title="Edit">
 					<img src="resources/images/edit.png" width="15"/>
 				</a>
 			</td>
