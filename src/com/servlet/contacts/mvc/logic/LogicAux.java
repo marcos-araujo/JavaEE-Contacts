@@ -1,5 +1,10 @@
 package com.servlet.contacts.mvc.logic;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.util.Optional;
+import java.util.stream.Stream;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -11,25 +16,25 @@ public class LogicAux {
 	
 	private LogicAux() {}
 	
-	public static Logic getLogic(String className) throws ClassNotFoundException {
+	public static Logic getLogic(String className) {
 		
-		Class<?> classLogic = null;
-		Logic logic = null;
-		
-	    try {
-	    	classLogic = Class.forName(Constant.PACKAGE_LOGIC + className);
-	    } catch (ClassNotFoundException e) {
+		try {
+
+			Class<?> classLogic = Class.forName(Constant.PACKAGE_LOGIC + className);
+	    	
+	    	Stream<Constructor<?>> constructors = Stream.of(classLogic.getDeclaredConstructors());
+	    	
+			Optional<Constructor<?>> defaultConstructor = constructors
+					.filter(constructor -> constructor.getParameterCount() == 0).findFirst();
+	    	
+			return (Logic) defaultConstructor.get().newInstance();
+			
+	    } catch (InstantiationException | IllegalAccessException | ClassNotFoundException | 
+	    		IllegalArgumentException | InvocationTargetException e) {
 	    	logger.error("Logic not found", e);
-	    	classLogic = Class.forName(Constant.PACKAGE_LIST);
+	    	throw new RuntimeException("Error instantiating new Logic", e);
 	    }
 	    
-	    try {
-	    	logic = (Logic) classLogic.newInstance();
-	    } catch (InstantiationException | IllegalAccessException e) {
-	    	logger.error("Error instantiating new Logic", e);
-	    }
-	    
-	    return logic;
 	}
 
 }
