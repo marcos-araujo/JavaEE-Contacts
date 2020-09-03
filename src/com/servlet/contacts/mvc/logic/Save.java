@@ -50,16 +50,15 @@ public class Save implements Logic{
 	}
 
 	private Contact populateContact(HttpServletRequest req) throws ParseException {
-		String dateText = req.getParameter("birthdate");
-		Calendar birthdate = Calendar.getInstance();
-		
 		Contact contact = new Contact();
 		contact.setId(!req.getParameter("id").isEmpty() ? Long.parseLong(req.getParameter("id")) : null);
 		contact.setName(req.getParameter("name"));
 		contact.setAddress(req.getParameter("address"));
 		contact.setEmail(req.getParameter("email"));
 		
+		String dateText = req.getParameter("birthdate");
 		if(!dateText.equals("")) {
+			Calendar birthdate = Calendar.getInstance();
 			birthdate.setTime(new SimpleDateFormat("dd/MM/yyyy").parse(dateText));
 			contact.setBirthdate(birthdate);
 		}
