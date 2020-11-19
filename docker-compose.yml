@@ -1,0 +1,32 @@
+version: '3'
+services: 
+  contacts:
+    image: marcosaraujo/servlet-contacts
+    container_name: servlet-contacts
+    ports:
+      - "8080:8080"
+    networks:
+      - production-network
+    depends_on: 
+      - "mysql_servlet"
+
+  mysql_servlet:
+    container_name: mysql_servlet
+    image: mysql:5.7
+    environment:
+      - MYSQL_DATABASES=SERVLET_CONTACTS
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_PORT=33060
+      - MYSQL_USER=servlet
+      - MYSQL_PASSWORD=servlet123
+      - MYSQL_MY_DATABASE=SERVLET_CONTACTS
+    ports:
+      - "33060:3306"
+    volumes:
+      - "/home/marcos/mysql-volume:/var/lib/mysql"
+    networks:
+      - production-network
+
+networks:
+  production-network:
+    driver: bridge
